@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To Do</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>To Do</h1>
+
+    <!-- Storage warning (hidden until needed). Filled in by script.js -->
+    <section id="storage-banner" class="banner" role="alert" hidden>
+      <p id="storage-message"></p>
+      <div id="storage-actions" class="row" hidden>
+        <button type="button" id="download-raw">Download unreadable data</button>
+        <button type="button" id="start-fresh">Discard it and start fresh</button>
+      </div>
+    </section>
+
+    <form id="add-form" novalidate>
+      <label for="new-title">New task</label>
+      <div class="row">
+        <input id="new-title" type="text" autocomplete="off" aria-describedby="add-error hint">
+        <button type="submit">Add</button>
+      </div>
+      <p id="hint" class="hint">1 to 200 characters.</p>
+      <p id="add-error" class="error" role="alert"></p>
+    </form>
+
+    <div id="filters" class="row" role="group" aria-label="Filter tasks">
+      <button type="button" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" data-filter="active" aria-pressed="false">Active</button>
+      <button type="button" data-filter="completed" aria-pressed="false">Completed</button>
+    </div>
+
+    <p id="count" class="hint"></p>
+    <ul id="task-list" class="tasks" aria-label="Tasks"></ul>
+    <p id="empty" class="empty" hidden></p>
+
+    <p id="save-status" class="hint"></p>
+    <p class="note">Tasks are stored only in this browser on this device. They are not backed up or synced, and clearing your browser data can remove them.</p>
+
+    <!-- Polite announcements for screen readers -->
+    <p id="live" class="visually-hidden" role="status"></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
